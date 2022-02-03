@@ -11,7 +11,7 @@ int main() {
     exit(1);
   }
 
-  outfile = fopen("/home/alinen/output.txt", "w");
+  outfile = fopen("/home/jmccarty/class-examples/output.txt", "w");
   if (outfile == NULL) {
     printf("Error: unable to open outfile\n");
     exit(1);
