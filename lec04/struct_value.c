@@ -19,23 +19,15 @@ void print(const char* prefix, struct studentT s) {
   printf("--------------------\n");
 }
 
-<<<<<<< HEAD
-void changeName(struct studentT *s, char* newName) {
-=======
-void changeName(struct studentT* s, char* newName) {
->>>>>>> 96f10abbca85925e2617842f4338dc7e72304d13
+void changeName(struct studentT s, char* newName) {
   if (newName == NULL) {
     return;
   }
-  strcpy(s->name, newName);
+  strcpy(s.name, newName);
 }
 
-<<<<<<< HEAD
-void changeGpa(struct studentT *s, float newGpa) {
-=======
-void changeGpa(struct studentT* s, float newGpa) {
->>>>>>> 96f10abbca85925e2617842f4338dc7e72304d13
-  s->gpa = newGpa;
+void changeGpa(struct studentT s, float newGpa) {
+  s.gpa = newGpa;
 }
 
 int main() {
@@ -47,10 +39,10 @@ int main() {
     student1.grad_yr = 2021;
 
     print("ORIGINAL", student1);
-    changeName(&student1, "Kwame");
+    changeName(student1, "Kwame");
     print("AFTER CHANGE NAME", student1);
 
-    changeGpa(&student1, 3.7);
+    changeGpa(student1, 3.7);
     print("AFTER CHANGE GPA", student1);
 
     return 0;
