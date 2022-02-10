@@ -33,7 +33,7 @@ int findAndReturnMax(int *array1, int len, int max) {
 /***************************************/
 int main(int argc, char *argv[]) {
 
-    int arr[5] = { 17, 21, 44, 2, 60 };
+    int arr[5] = { 18, 21, 44, 2, 60 };
 
     int max = arr[0];
 

@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 
     // here is a bad Heap memory access
     // (write beyond bounds of allocated memory):
-    for (i=0; i < 13; i++) {
+    for (i=0; i < 10; i++) {
         bigfish[i] = 66+i;
     }
     printf("\nafter loop:\n");
