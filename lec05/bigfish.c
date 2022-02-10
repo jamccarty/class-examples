@@ -8,8 +8,8 @@ int main(int argc, char *argv[]) {
     int *bigfish, *littlefish, i;
 
     // allocate space for two int arrays
-    bigfish = (int *)malloc(sizeof(int)*10);
-    littlefish = (int *)malloc(sizeof(int)*10);
+    bigfish = malloc(sizeof(int)*10);
+    littlefish = malloc(sizeof(int)*10);
     if (!bigfish || !littlefish) {
         printf("Error: malloc failed\n");
         exit(1);
