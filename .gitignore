@@ -1,3 +1,7 @@
+.DS_Store
+client
+shm_read
+shm_write
 mybench*
 origbench*
 matrix
