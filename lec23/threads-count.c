@@ -11,7 +11,7 @@ void *thread_count(void* args) {
   myid = *((int*) args); 
   printf("hello I'm thread %d with pthread_id %lu\n",
       myid, pthread_self());
- 
+      
   for(i = 0; i < 100000; i++) {
     count += 1;
   }

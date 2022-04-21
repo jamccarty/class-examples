@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <pthread.h>
+
+int count = 0;
 
 struct thread_data {
   FILE* fp;
@@ -12,8 +15,26 @@ unsigned long long lettercount = 0;
 
 void *start(void* userdata) {
   struct thread_data* data = (struct thread_data*) userdata;
-  int count = 0;
+  int len = 1;
   char buffer[1024];
+
+  unsigned long long local_lettercount = 0;
+  while(len != 0){
+    pthread_mutex_lock(&mutex);
+    fgets(buffer, 1023, ((struct thread_data*)userdata) -> fp);
+    pthread_mutex_unlock(&mutex);
+
+    len = strlen(buffer);
+
+    for(int i = 0; i < len; i++){
+      local_lettercount++;
+    }
+  }
+  
+
+  pthread_mutex_lock(&mutex);
+  count+=local_lettercount++;
+  pthread_mutex_unlock(&mutex);
 
   // todo
   return 0; 
