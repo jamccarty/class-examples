@@ -77,11 +77,12 @@ void *countElemsStr(void *args) {
     input_str[end] = 0; //ending point for parsing
 
     //tokenize values
-    token = strtok(input_str + start, " ");
+    char* strptr = NULL;
+    token = strtok_r(input_str + start, " ", &strptr);
     while (token != NULL) {
         val = atoi(token); //convert to an int
         local_counts[val] = local_counts[val] + 1; //update associated counts
-        token = strtok(NULL, " ");
+        token = strtok_r(NULL, " ", &strptr);
     }
 
     pthread_mutex_lock(&mutex);

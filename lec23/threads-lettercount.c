@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
+#include <unistd.h>
 
 int count = 0;
 
@@ -37,6 +38,20 @@ void *start(void* userdata) {
   pthread_mutex_unlock(&mutex);
 
   // todo
+  char *line = fgets(buffer, 1024, data->fp);
+
+  while (line != NULL) {
+    printf("%d) %s\n", data->id, line);
+    for (int i = 0; buffer[i] != '\0'; i++) {
+      if (buffer[i] >= 'a' && buffer[i] <= 'z') {
+        count++;
+      }
+    } 
+    line = fgets(buffer, 1024, data->fp);
+  }
+  pthread_mutex_lock(&mutex);
+  lettercount += count;
+  pthread_mutex_unlock(&mutex);
   return 0; 
 }
 
